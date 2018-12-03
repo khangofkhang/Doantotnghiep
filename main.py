@@ -268,13 +268,13 @@ class Fruit(Widget):
         # drawing the fruit
         # (which is just a circle btw, so I guess it's an apple)
         with self.canvas:
-            Color(1, 0, 0)
+            Color(1, 1, 1)
             x = (pos[0] - 1) * self.size[0]
             y = (pos[1] - 1) * self.size[1]
             coord = (x, y)
 
             # storing the representation and update the state of the object
-            self.object_on_board = Ellipse(pos=coord, size=self.size)
+            self.object_on_board = Ellipse(source='apple.png',pos=coord, size=self.size)
             self.state = True
 
 

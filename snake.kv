@@ -1,6 +1,7 @@
 #:kivy 1.8.0
 
 <Playground>
+
     snake: snake_id
     fruit: fruit_id
 
@@ -39,6 +40,10 @@
 
 
 <WelcomeScreen>
+	AsyncImage:
+		source:'logo.jpg'
+		allow_stretch: True
+		keep_ratio: False
     AnchorLayout:
         
         BoxLayout:
@@ -47,21 +52,22 @@
             spacing: 10
             Label:
                 size_hint_y: .01
-                text: "Hoc Vien Cong Nghe Buu Chinh Vien Thong"
+                text: 'Học Viện Công Nghệ Bưu Chính Viễn Thông'
+                color: 1,0,0,1
+                font_size: 30
+                bold: True
+            Label:
+                size_hint_y: .01
+                text: "Khoa Kỹ Thuật Điện - Điện Tử 2"
                 color: 1,0,0,1
                 font_size: 30
             Label:
-                size_hint_y: .01
-                text: "Khoa Ky Thuat Dien - Dien Tu 2"
+                size_hint_y: .015
+                text: "ĐỒ ÁN TỐT NGHIỆP"
                 color: 1,0,0,1
-                font_size: 30
-            Label:
-                size_hint_y: .01
-                text: "DO AN TOT NGHIEP"
-                color: 1,1,0,1
                 valign: "bottom"
                 bold: True
-                font_size: 30
+                font_size: 50
                 padding: 0, 0
             
             AnchorLayout:
@@ -76,33 +82,50 @@
                     Button:
                         halign: "center"
                         valign: "middle"
-                        text: "PLAY"
+                        text: "CHƠI"
                         on_press: root.manager.current = "playground_screen"
 
                     Button:
                         halign: "center"
                         valign: "middle"
-                        text: "OPTIONS"
+                        text: "CÀI ĐẶT"
                         on_press: root.show_popup()
 
                     Button:
                         halign: "center"
                         valign: "middle"
-                        text: "HISTORY"
+                        text: "LỊCH SỬ"
                         on_press: root.manager.current = "defeated_screen"
                         
 
 
 <PlaygroundScreen>:
     game_engine: playground_widget_id
-
+    AsyncImage:
+        source:'brg_onPlay.jpg'
+        allow_stretch: True
+        keep_ratio: False
     Playground:
         id: playground_widget_id
 
-<DefeatScreen>:
-    Label:
-        text:"game over Do you want play again ?"
-        color: 1,1,0,1
+<DefeatedScreen>:
+    AnchorLayout:
+        
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (1, 1)
+            spacing: 10
+            Label:
+                size_hint_y: .1
+                text:"GAME OVER"
+                color: 0,1,0,1
+                font_size: 30
+                bold: True
+            Button:
+                halign: "center"
+                valign: "middle"
+                text: "CHƠI LẠI"
+                on_press: root.manager.current = "playground_screen"
 
 
 <OptionsPopup>
